@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:web_practice/custom_widgets/custom_navi_bar_cards.dart';
 import 'package:web_practice/custom_widgets/home_offer_pharnacy_card.dart';
 import 'package:web_practice/custom_widgets/home_screen_hmg_service_card.dart';
 import 'package:web_practice/custom_widgets/without_login_navigate_screen.dart';
 import 'package:web_practice/helper_services/covid19_dialog.dart';
+import 'package:web_practice/screens/book_appointment_screen.dart';
 import 'package:web_practice/screens/custom_drawer.dart';
 import 'package:web_practice/screens/hmg_viewaall_screen.dart';
+import 'package:web_practice/screens/medical_file_screen.dart';
 import 'package:web_practice/utils.dart';
 import 'payment_service_screen.dart';
 import 'welcome_screen.dart';
@@ -18,84 +21,71 @@ class HomeScreenWithoutLogin extends StatefulWidget {
 }
 
 class _HomeScreenWithoutLoginState extends State<HomeScreenWithoutLogin> {
+  int? index;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: Container(
-        height: 85,
-        width: 85,
-        decoration: const BoxDecoration(
-            color: Color(0xffc5272f), shape: BoxShape.circle),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Icon(
-              CupertinoIcons.calendar_today,
-              color: Colors.white,
-            ),
-            const Text(
-              'Book',
-              style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              child: Text('Appointment'.toUpperCase(),
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                      fontSize: 10)),
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => BookAppointmentScreen()));
+          },
+          child: const Icon(Icons.add)),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: Card(
         child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-              icon: const Icon(
-                Icons.menu,
-                color: Colors.black,
-              ),
-              onPressed: () {},
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CustomNavBar(
+              iconData: Icons.file_copy,
+              title: 'Medical File',
+              color: index == 0 ? true : false,
+              onTap: () {
+                index = 0;
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MedicalFileScreen()));
+
+                setState(() {});
+              },
             ),
-            IconButton(
-              icon: const Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-              onPressed: () {},
+            CustomNavBar(
+              iconData: Icons.family_restroom,
+              title: 'My Family',
+              color: index == 1 ? true : false,
+              onTap: () {
+                index = 1;
+
+                setState(() {});
+              },
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 18.0),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.print,
-                  color: Colors.black,
-                ),
-                onPressed: () {},
-              ),
+            CustomNavBar(
+              iconData: Icons.file_copy,
+              title: 'Todo List',
+              color: index == 2 ? true : false,
+              onTap: () {
+                index = 2;
+
+                setState(() {});
+              },
             ),
-            IconButton(
-              icon: const Icon(
-                Icons.people,
-                color: Colors.black,
-              ),
-              onPressed: () {},
+            CustomNavBar(
+              iconData: Icons.help,
+              title: 'Help',
+              color: index == 3 ? true : false,
+              onTap: () {
+                index = 3;
+
+                setState(() {});
+              },
             ),
           ],
         ),
-        color: Colors.white,
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 5,
       ),
       drawer: const Drawer(
         child: CustomDrawer(),
@@ -262,7 +252,7 @@ class _HomeScreenWithoutLoginState extends State<HomeScreenWithoutLogin> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           SizedBox(
                             height: 20,
                           ),
@@ -282,12 +272,26 @@ class _HomeScreenWithoutLoginState extends State<HomeScreenWithoutLogin> {
                                   fontSize: 11, fontWeight: FontWeight.bold),
                             ),
                           ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              CustomImageContainer(image: 'images/ear.png'),
+                              CustomImageContainer(
+                                image: 'images/head.png',
+                              ),
+                              CustomImageContainer(
+                                image: 'images/teeth.png',
+                              ),
+                            ],
+                          )
                         ],
                       ),
-                      color2: Colors.grey.withOpacity(0.4),
-                      iconData: Icons.lock_outline,
+                      // color2: Colors.grey.withOpacity(0.4),
+                      images: '',
                     ),
                     HomeOfferPharmacyCard(
+                      images: 'images/ecommerce.png',
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -350,74 +354,79 @@ class _HomeScreenWithoutLoginState extends State<HomeScreenWithoutLogin> {
                   ],
                 ),
               ),
-              Wrap(
-                children: [
-                  HomeScreenHmgCard(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                              builder: (context) => WithoutLoginNavigateScreen(
-                                    title: 'LiveCare',
-                                    description:
-                                        'This service allows you to make an online virtual consultation'
-                                        ' via video call directly with the doctor from anywhere at any time',
-                                  )));
-                    },
-                    text1: 'Live Care',
-                    image: '',
-                    text2: 'Online Consulting',
-                  ),
-                  HomeScreenHmgCard(
-                    text1: 'COVID-19',
-                    image: '',
-                    onTap: () {
-                      covid19Dialog(context);
-                    },
-                    text2: 'Test',
-                  ),
-                  HomeScreenHmgCard(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                              builder: (context) => PaymentServiceScreen()));
-                    },
-                    text1: 'Online',
-                    image: '',
-                    text2: 'Payment',
-                  ),
-                  HomeScreenHmgCard(
-                    text1: 'Home',
-                    image: '',
-                    text2: 'Health Care',
-                  ),
-                  HomeScreenHmgCard(
-                    text1: 'Checkup',
-                    image: '',
-                    text2: 'Comprehensive',
-                  ),
-                  HomeScreenHmgCard(
-                    text1: 'Emergency',
-                    image: '',
-                    text2: 'Services',
-                  ),
-                  HomeScreenHmgCard(
-                    text1: 'E-Refferal',
-                    image: '',
-                    text2: 'Services',
-                  ),
-                  HomeScreenHmgCard(
-                    text1: 'H0',
-                    image: '',
-                    text2: 'Daily water check',
-                  ),
-                  HomeScreenHmgCard(
-                    text1: 'Connect',
-                    image: '',
-                    text2: 'With us',
-                  )
-                ],
+              Align(
+                alignment: Alignment.center,
+                child: Wrap(
+                  children: [
+                    HomeScreenHmgCard(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) =>
+                                    WithoutLoginNavigateScreen(
+                                      title: 'LiveCare',
+                                      description:
+                                          'This service allows you to make an online virtual consultation'
+                                          ' via video call directly with the doctor from anywhere at any time',
+                                    )));
+                      },
+                      text1: 'Live Care',
+                      image: '',
+                      text2: 'Online Consulting',
+                    ),
+                    HomeScreenHmgCard(
+                      text1: 'COVID-19',
+                      image: 'images/corona.png',
+                      onTap: () {
+                        covid19Dialog(context);
+                      },
+                      text2: 'Test',
+                    ),
+                    HomeScreenHmgCard(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) =>
+                                    const PaymentServiceScreen()));
+                      },
+                      text1: 'Online',
+                      image: '',
+                      text2: 'Payment',
+                    ),
+                    HomeScreenHmgCard(
+                      text1: 'Home',
+                      image: 'images/home.png',
+                      text2: 'Health Care',
+                    ),
+                    HomeScreenHmgCard(
+                      text1: 'Checkup',
+                      image: 'images/checkup.png',
+                      text2: 'Comprehensive',
+                    ),
+                    HomeScreenHmgCard(
+                      text1: 'Emergency',
+                      image: 'images/emergency.png',
+                      text2: 'Services',
+                    ),
+                    HomeScreenHmgCard(
+                      text1: 'E-Refferal',
+                      image: 'images/erefferal.png',
+                      text2: 'Services',
+                    ),
+                    HomeScreenHmgCard(
+                      text1: 'H0',
+                      image: 'images/h20.png',
+                      text2: 'Daily water check',
+                    ),
+                    HomeScreenHmgCard(
+                      text1: 'Connect',
+                      image: 'images/connect.png',
+                      text2: 'With us',
+                    )
+                  ],
+                ),
               ),
               const SizedBox(height: 100)
             ],
@@ -427,3 +436,47 @@ class _HomeScreenWithoutLoginState extends State<HomeScreenWithoutLogin> {
     );
   }
 }
+
+class CustomImageContainer extends StatefulWidget {
+  String? image;
+
+  CustomImageContainer({Key? key, this.image}) : super(key: key);
+
+  @override
+  _CustomImageContainerState createState() => _CustomImageContainerState();
+}
+
+class _CustomImageContainerState extends State<CustomImageContainer> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 35,
+      width: 35,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(widget.image!), fit: BoxFit.cover)),
+    );
+  }
+}
+
+// AnimatedBottomNavigationBar(
+// backgroundColor: Colors.white,
+// notchMargin: 4,
+// gapLocation: GapLocation.center,
+// notchSmoothness: NotchSmoothness.verySmoothEdge,
+// leftCornerRadius: 1,
+// rightCornerRadius: 1,
+// activeColor: Colors.red,
+// inactiveColor: Colors.black,
+// icons: const [
+// Icons.description,
+// Icons.family_restroom,
+// Icons.today_outlined,
+// Icons.help
+// ],
+// onTap: (int) {
+// setState(() {
+// index = int;
+// });
+// },
+// activeIndex: index!),

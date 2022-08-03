@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_practice/custom_widgets/custom_list_tile.dart';
-import 'package:web_practice/screens/login_screen.dart';
 import 'package:web_practice/screens/welcome_screen.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -22,14 +21,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     height: 60,
                     width: 60,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage('images/LOGI.png'),
                             fit: BoxFit.cover)),
@@ -38,23 +37,23 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      icon: Icon(Icons.close))
+                      icon: const Icon(Icons.close))
                 ],
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'To view your medical profile, please login in or register now',
                 style: TextStyle(
                     fontWeight: FontWeight.bold, height: 1.5, fontSize: 19),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 'Login or Register Now',
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 17),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               CustomListTile(
@@ -62,7 +61,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   Navigator.push(
                       context,
                       CupertinoPageRoute(
-                          builder: (context) => WelcomeScreen()));
+                          builder: (context) => const WelcomeScreen()));
                 },
                 text: 'Login / Register',
                 iconData: CupertinoIcons.power,

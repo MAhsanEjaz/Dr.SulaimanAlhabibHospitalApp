@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class HomeOfferPharmacyCard extends StatefulWidget {
   Color? color, color1, color2;
   Widget? child;
-  IconData? iconData;
+  String? images;
 
   HomeOfferPharmacyCard(
-      {this.color, this.color1, this.child, this.color2, this.iconData});
+      {this.color, this.color1, this.child, this.color2, this.images});
 
   @override
   _HomeOfferPharmacyCardState createState() => _HomeOfferPharmacyCardState();
@@ -45,16 +45,17 @@ class _HomeOfferPharmacyCardState extends State<HomeOfferPharmacyCard> {
                 ),
               ),
             ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              top: 0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                color: widget.color2,
                 child: Container(
-                  color: widget.color2,
-                  child: Center(child: Icon(widget.iconData,size: 40,)),
+                  height: 55,
+                  width: 55,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(widget.images.toString()),
+                          fit: BoxFit.cover)),
                 ),
               ),
             )

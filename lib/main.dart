@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           appBarTheme: const AppBarTheme(
               iconTheme: IconThemeData(color: Colors.black),
-              titleTextStyle: TextStyle(color: Colors.black))),
+              titleTextStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 23))),
       home: const HomeScreenWithoutLogin(),
     );
   }
