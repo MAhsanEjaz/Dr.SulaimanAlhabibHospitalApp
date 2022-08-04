@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:web_practice/custom_widgets/home_screen_hmg_service_card.dart';
 import 'package:web_practice/helper_services/custom_weather_dialog.dart';
 import 'package:web_practice/utils.dart';
+import '../../helper_services/covid19_dialog.dart';
 
 class HmgViewAllScreen extends StatefulWidget {
   const HmgViewAllScreen({Key? key}) : super(key: key);
@@ -109,8 +110,11 @@ class _HmgViewAllScreenState extends State<HmgViewAllScreen> {
                       text2: 'Online Consulting',
                     ),
                     HomeScreenHmgCard(
+                      onTap: () {
+                        covid19Dialog(context);
+                      },
                       text1: 'COVID-19',
-                      image: '',
+                      image: 'images/corona.png',
                       text2: 'Test',
                     ),
                     HomeScreenHmgCard(
@@ -120,32 +124,32 @@ class _HmgViewAllScreenState extends State<HmgViewAllScreen> {
                     ),
                     HomeScreenHmgCard(
                       text1: 'Home',
-                      image: '',
+                      image: 'images/home.png',
                       text2: 'Health Care',
                     ),
                     HomeScreenHmgCard(
                       text1: 'Checkup',
-                      image: '',
+                      image: 'images/checkup.png',
                       text2: 'Comprehensive',
                     ),
                     HomeScreenHmgCard(
                       text1: 'Emergency',
-                      image: '',
+                      image: 'images/emergency.png',
                       text2: 'Services',
                     ),
                     HomeScreenHmgCard(
                       text1: 'E-Refferal',
-                      image: '',
+                      image: 'images/erefferal.png',
                       text2: 'Services',
                     ),
                     HomeScreenHmgCard(
                       text1: 'H0',
-                      image: '',
+                      image: 'images/h20.png',
                       text2: 'Daily water check',
                     ),
                     HomeScreenHmgCard(
                       text1: 'Connect',
-                      image: '',
+                      image: 'images/connect.png',
                       text2: 'With us',
                     ),
                     HomeScreenHmgCard(

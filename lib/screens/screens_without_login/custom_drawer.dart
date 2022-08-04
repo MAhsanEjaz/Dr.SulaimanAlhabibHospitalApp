@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_practice/custom_widgets/custom_list_tile.dart';
-import 'package:web_practice/screens/welcome_screen.dart';
+import 'package:web_practice/screens/screens_without_login/welcome_screen.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);

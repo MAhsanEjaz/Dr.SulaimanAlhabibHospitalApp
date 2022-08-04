@@ -5,13 +5,13 @@ import 'package:web_practice/custom_widgets/home_offer_pharnacy_card.dart';
 import 'package:web_practice/custom_widgets/home_screen_hmg_service_card.dart';
 import 'package:web_practice/custom_widgets/without_login_navigate_screen.dart';
 import 'package:web_practice/helper_services/covid19_dialog.dart';
-import 'package:web_practice/screens/book_appointment_screen.dart';
-import 'package:web_practice/screens/custom_drawer.dart';
-import 'package:web_practice/screens/hmg_viewaall_screen.dart';
-import 'package:web_practice/screens/medical_file_screen.dart';
+import 'package:web_practice/screens/screens_without_login/book_appointment_screen.dart';
+import 'package:web_practice/screens/screens_without_login/hmg_viewaall_screen.dart';
+import 'package:web_practice/screens/screens_without_login/welcome_screen.dart';
 import 'package:web_practice/utils.dart';
+import 'custom_drawer.dart';
+import 'medical_file_screen.dart';
 import 'payment_service_screen.dart';
-import 'welcome_screen.dart';
 
 class HomeScreenWithoutLogin extends StatefulWidget {
   const HomeScreenWithoutLogin({Key? key}) : super(key: key);

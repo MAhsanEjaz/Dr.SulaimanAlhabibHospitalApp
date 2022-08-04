@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_practice/custom_widgets/custom_button.dart';
 
-import '../screens/login_screen.dart';
+import '../screens/screens_without_login/login_screen.dart';
 
 void customWeatherDialog(BuildContext context) {
   showDialog(

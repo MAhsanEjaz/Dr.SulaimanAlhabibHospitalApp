@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_practice/custom_widgets/custom_button.dart';
 import 'package:web_practice/custom_widgets/login_screen_file_card.dart';
-import 'package:web_practice/screens/nation_id_number_screen.dart';
 import 'package:web_practice/utils.dart';
+
+import 'nation_id_number_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -108,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               text: 'National ID \nNumber',
                               iconData: CupertinoIcons.sidebar_left),
                           LoginScreenCard(
-                            onTap: (){},
+                              onTap: () {},
                               text: 'Medical File \nNumber',
                               iconData: CupertinoIcons.folder_fill_badge_minus),
                         ],

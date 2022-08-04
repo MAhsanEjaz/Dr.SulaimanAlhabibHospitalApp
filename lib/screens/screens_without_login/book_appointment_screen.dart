@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_practice/custom_widgets/custom_button.dart';
-import 'package:web_practice/screens/clinics_list_screen.dart';
+import 'package:web_practice/screens/screens_without_login/clinics_list_screen.dart';
 import 'package:web_practice/utils.dart';
 
 class BookAppointmentScreen extends StatefulWidget {
