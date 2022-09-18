@@ -18,9 +18,11 @@ class _CustomNavBarState extends State<CustomNavBar> {
     return InkWell(
       onTap: (widget.onTap),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(5.0),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          // mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(
               widget.iconData,
@@ -29,7 +31,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             Text(
               widget.title!,
               style: TextStyle(
-                  color: widget.color ? Colors.black : Colors.grey.shade400),
+                  color: widget.color ? Colors.black : Colors.grey.shade500,fontSize: 12),
             )
           ],
         ),

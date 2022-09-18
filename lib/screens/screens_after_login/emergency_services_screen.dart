@@ -23,7 +23,7 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Align(
             alignment: Alignment.center,
             child: Wrap(
@@ -43,7 +43,8 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
                     Navigator.push(
                         context,
                         CupertinoPageRoute(
-                            builder: (context) => RapidResponseTeamScreen()));
+                            builder: (context) =>
+                                const RapidResponseTeamScreen()));
                   },
                   text1: 'ERT',
                   text2: 'Service',

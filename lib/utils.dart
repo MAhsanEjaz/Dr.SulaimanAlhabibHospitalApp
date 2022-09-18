@@ -1,6 +1,9 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 const backgroundColor = Color(0xffefefef);
+const appColor = Color(0xff860808);
 
 const String covid19 =
     'Hospital are conducting a test for the emerging corona virus and  issuing  travel'

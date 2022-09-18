@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:web_practice/custom_widgets/custom_button.dart';
 import 'package:web_practice/custom_widgets/custom_medical_file_card.dart';
-import 'package:web_practice/screens/screens_without_login/nav_bar_screen.dart';
+import 'package:web_practice/screens/screens_after_login/nav_bar_login_screen.dart';
 import 'package:web_practice/utils.dart';
 
-class MedicalFileScreen extends StatefulWidget {
-  const MedicalFileScreen({Key? key}) : super(key: key);
+class MedicalFileForLoginScreen extends StatefulWidget {
+  const MedicalFileForLoginScreen({Key? key}) : super(key: key);
 
   @override
-  _MedicalFileScreenState createState() => _MedicalFileScreenState();
+  _MedicalFileForLoginScreenState createState() =>
+      _MedicalFileForLoginScreenState();
 }
 
-class _MedicalFileScreenState extends State<MedicalFileScreen> {
+class _MedicalFileForLoginScreenState extends State<MedicalFileForLoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,7 @@ class _MedicalFileScreenState extends State<MedicalFileScreen> {
               Navigator.pushAndRemoveUntil(
                   context,
                   CupertinoPageRoute(
-                      builder: (context) => const NavbarScreen()),
+                      builder: (context) => const NavbarScreenLoginScreen()),
                   (route) => false);
             },
             child: const Icon(CupertinoIcons.back)),
@@ -50,36 +50,27 @@ class _MedicalFileScreenState extends State<MedicalFileScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 30),
-                      const Text(
+                    children: const [
+                      SizedBox(height: 30),
+                      Text(
                         'Appointments',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.white),
                       ),
-                      const SizedBox(height: 2),
-                      const Text(
+                      SizedBox(height: 2),
+                      Text(
                         'Timeline',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 25,
                             color: Colors.white),
                       ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        'To view your medical profile, please \n log in or register now',
+                      SizedBox(height: 20),
+                      Text(
+                        'No Avaliable Appointment',
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(height: 10),
-                      SizedBox(
-                        height: 40,
-                        child: CustomButton(
-                          onTap: () {},
-                          child: 'Login',
-                          btnColor: Colors.red,
-                        ),
-                      )
                     ],
                   ),
                 ),

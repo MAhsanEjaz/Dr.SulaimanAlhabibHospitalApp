@@ -25,12 +25,12 @@ class _CustomMedicalFileCardState extends State<CustomMedicalFileCard> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: Container(
-                height: 112,
-                width: 108,
+                height: 100,
+                width: 100,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: Colors.black26)),
+                    border: Border.all(color: Colors.black12)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -55,7 +55,7 @@ class _CustomMedicalFileCardState extends State<CustomMedicalFileCard> {
                       Text(widget.text2!,
                           style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 12)),
-                      const SizedBox(height: 10)
+                      const SizedBox(height: 7)
                     ],
                   ),
                 ),
@@ -70,7 +70,7 @@ class _CustomMedicalFileCardState extends State<CustomMedicalFileCard> {
               width: 25,
               decoration:
                   BoxDecoration(color: widget.color, shape: BoxShape.circle),
-              child: Center(
+              child: const Center(
                 child: Text(
                   '0',
                   style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),

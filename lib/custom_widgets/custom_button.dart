@@ -15,20 +15,19 @@ class CustomButton extends StatefulWidget {
 class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: SizedBox(
-          height: 44,
-          child: ElevatedButton(
-            onPressed: (widget.onTap),
-            style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0)),
-                elevation: 0,
-                primary: widget.btnColor),
-            child: Text(widget.child!),
-          ),
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: SizedBox(
+        height: 44,
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: (widget.onTap),
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0)),
+              elevation: 0,
+              primary: widget.btnColor),
+          child: Text(widget.child!),
         ),
       ),
     );

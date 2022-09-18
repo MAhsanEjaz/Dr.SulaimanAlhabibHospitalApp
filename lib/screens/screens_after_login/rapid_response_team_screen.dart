@@ -56,14 +56,13 @@ class _RapidResponseTeamScreenState extends State<RapidResponseTeamScreen> {
                     const Text(rapidResponseText,
                         style:
                             TextStyle(height: 2, fontWeight: FontWeight.w500)),
-
                     CustomRadioButtonWithText(
-                      text: value1,
+                      // text: value1,
                       onChanged: (value) {
                         value1 == value;
                         setState(() {});
                       },
-                      text2: '',
+
                     )
                   ],
                 ),

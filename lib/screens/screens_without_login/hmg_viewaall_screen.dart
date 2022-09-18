@@ -1,7 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:web_practice/custom_widgets/home_screen_hmg_service_card.dart';
 import 'package:web_practice/helper_services/custom_weather_dialog.dart';
+import 'package:web_practice/screens/screens_after_login/blood_donation_screen.dart';
+import 'package:web_practice/screens/screens_after_login/emergency_service_screen.dart';
+import 'package:web_practice/screens/screens_after_login/health_converter.dart';
+import 'package:web_practice/screens/screens_after_login/my_family_screen.dart';
+import 'package:web_practice/screens/screens_after_login/water_tracker_screen.dart';
 import 'package:web_practice/utils.dart';
 import '../../helper_services/covid19_dialog.dart';
 
@@ -17,7 +23,7 @@ class _HmgViewAllScreenState extends State<HmgViewAllScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       customWeatherDialog(context);
     });
   }
@@ -134,6 +140,13 @@ class _HmgViewAllScreenState extends State<HmgViewAllScreen> {
                     ),
                     HomeScreenHmgCard(
                       text1: 'Emergency',
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) =>
+                                    EmergencyServiceScreen()));
+                      },
                       image: 'images/emergency.png',
                       text2: 'Services',
                     ),
@@ -144,6 +157,12 @@ class _HmgViewAllScreenState extends State<HmgViewAllScreen> {
                     ),
                     HomeScreenHmgCard(
                       text1: 'H0',
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => WaterTrackerScreen()));
+                      },
                       image: 'images/h20.png',
                       text2: 'Daily water check',
                     ),
@@ -168,6 +187,12 @@ class _HmgViewAllScreenState extends State<HmgViewAllScreen> {
                       text2: 'Insurance',
                     ),
                     HomeScreenHmgCard(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => const MyFamilyScreen()));
+                      },
                       text1: 'My Family',
                       image: '',
                       text2: 'Files',
@@ -184,11 +209,23 @@ class _HmgViewAllScreenState extends State<HmgViewAllScreen> {
                     ),
                     HomeScreenHmgCard(
                       text1: 'Blood',
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => BloodDonationScreen()));
+                      },
                       image: '',
                       text2: 'Donation',
                     ),
                     HomeScreenHmgCard(
                       text1: 'Health',
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => HealthConverterScreen()));
+                      },
                       image: '',
                       text2: 'Calculator',
                     ),

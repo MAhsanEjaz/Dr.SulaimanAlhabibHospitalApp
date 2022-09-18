@@ -15,7 +15,7 @@ class _CustomListTileState extends State<CustomListTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.all(0),
+      contentPadding: const EdgeInsets.all(0),
       minLeadingWidth: 0,
       onTap: (widget.onTap),
       leading: Icon(
@@ -24,7 +24,7 @@ class _CustomListTileState extends State<CustomListTile> {
       ),
       title: Text(
         widget.text!,
-        style: TextStyle(fontWeight: FontWeight.bold),
+        style: const TextStyle(fontWeight: FontWeight.bold),
       ),
     );
   }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:web_practice/screens/screens_without_login/home_screen_without_login.dart';
 
 import 'screens/screens_after_login/home_screen.dart';
+import 'screens/screens_without_login/nav_bar_screen.dart';
+import 'screens/screens_without_login/practice_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +22,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(
           appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.white,
+              actionsIconTheme: IconThemeData(
+                color: Colors.black,
+              ),
+              backgroundColor: Colors.white,
               elevation: 0,
               iconTheme: IconThemeData(color: Colors.black),
               titleTextStyle: TextStyle(
@@ -28,7 +33,9 @@ class _MyAppState extends State<MyApp> {
                   fontWeight: FontWeight.bold,
                   fontSize: 23))),
       // home: const HomeScreenWithoutLogin(),
-      home: HomeScreen(),
+      // home: HomeScreen(),
+      // home: PracticeScreen(),
+      home: NavbarScreen(),
     );
   }
 }

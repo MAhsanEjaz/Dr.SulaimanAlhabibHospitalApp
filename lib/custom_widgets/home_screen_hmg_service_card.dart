@@ -18,20 +18,23 @@ class _HomeScreenHmgCardState extends State<HomeScreenHmgCard> {
     return Padding(
       padding: const EdgeInsets.all(6.0),
       child: InkWell(
+        borderRadius: BorderRadius.circular(25),
         onTap: (widget.onTap),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(22),
+          borderRadius: BorderRadius.circular(25),
           child: Container(
-            height: 105,
+            height: 110,
             width: 106,
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Color(0xffcdcdcd), Colors.grey.withOpacity(0.2)]),
+                gradient: LinearGradient(colors: [
+                  const Color(0xffcdcdcd),
+                  Colors.grey.withOpacity(0.2)
+                ]),
                 boxShadow: [
                   BoxShadow(
                       color: Colors.black.withOpacity(0.3),
                       blurRadius: 4,
-                      offset: Offset(1, 2),
+                      offset: const Offset(1, 2),
                       spreadRadius: 4,
                       blurStyle: BlurStyle.outer)
                 ]),
@@ -39,16 +42,20 @@ class _HomeScreenHmgCardState extends State<HomeScreenHmgCard> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 60,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(widget.image!), fit: BoxFit.cover)),
+                Padding(
+                  padding: const EdgeInsets.only(left: 3.0, top: 5),
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(widget.image!),
+                            fit: BoxFit.cover)),
+                  ),
                 ),
                 const Spacer(),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
                   child: Text(
                     widget.text1!,
                     style: const TextStyle(
@@ -56,7 +63,7 @@ class _HomeScreenHmgCardState extends State<HomeScreenHmgCard> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.only(left: 12.0),
                   child: Text(
                     widget.text2!,
                     style: const TextStyle(
